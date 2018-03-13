@@ -6,10 +6,10 @@
 
 <body>
 </br></br></br></br>
-<h1>Inloggen</h1> 
+<h1>Inloggen</h1>
 <form action="action_page.php">
-  <div class= "login">
-   
+  <div class= "login"
+
   </div>
 
   <div class="login">
@@ -19,15 +19,15 @@
     <label for="psw"><b></b></label></br>
     <input type="password" placeholder="Password" name="psw" required></br></br>
 
- 
+
     <button class= "submit "type="submit">
 	<img id="login-img" src="https://i0.wp.com/blog.sqlauthority.com/wp-content/uploads/2007/09/keyicon.png?resize=350%2C200&ssl=1" alt="Text"/>
 	<span>Login</span>
 	</button>
 	<span class="psw"><a href="#">Forgot password?</a></span></br>
-	
-	
-	
+
+
+
     <!--<label>
       <input type="checkbox" checked="" name="remember"> Remember me
     </label>
