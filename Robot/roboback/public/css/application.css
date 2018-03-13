@@ -1,0 +1,244 @@
+/*
+    Created on : Feb 6, 2017, 4:25:39 PM
+    Author     : geert
+*/
+
+.dropzone .dz-preview
+{
+    width: 350px !important;
+}
+.dropzone .dz-preview .dz-image
+{
+    width: 100%;
+}
+
+.project-header
+{
+    text-align: right;
+}
+.project-image
+{
+    height: 75px !important;
+}
+.project-date
+{
+    font-size: 8px;
+}
+.project-list-icon
+{
+    width: 1.5em;
+}
+.project-action-icon
+{
+    font-size: 1.0em;
+}
+// input[type=checkbox]
+.project-animation-checkbox
+{
+    -ms-transform: scale(2) !important;
+    -moz-transform: scale(2) !important;
+    -webkit-transform: scale(2) !important;
+    -o-transform: scale(2) !important;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.behavior-header
+{
+    font-weight: bold;
+    font-size: 1.5em;
+    padding-right: 5px;
+}
+.behavior-actions
+{
+    width: 4.6em;
+}
+.behavior-icon-selector
+{
+    margin-left: 50px;
+}
+.behavior-robot-list
+{
+
+}
+.behavior-robot-select-list
+{
+    width: 75%;
+}
+
+.text-header
+{
+    font-weight: bold;
+    font-size: 1.5em;
+    padding-right: 5px;
+}
+.text-actions
+{
+    width: 4.6em;
+}
+.text-icon-selector
+{
+    margin-left: 50px;
+}
+
+.icon-header
+{
+    font-weight: bold;
+    font-size: 1.5em;
+    padding-right: 5px;
+}
+.icon-actions
+{
+    width: 4.6em;
+}
+.icon-icon
+{
+   width: 24px;
+   height: 24px;
+}
+
+.robot-header
+{
+    font-weight: bold;
+    font-size: 1.5em;
+    padding-right: 5px;
+}
+.robot-actions
+{
+    width: 4.6em;
+}
+.robot-icon
+{
+   width: 24px;
+   height: 24px;
+}
+.robot-add-icon
+{
+    font-size: 1.0em !important;
+}
+
+.list-icon
+{
+    font-size: 1.5em;
+}
+.list-icon-icon
+{
+   width: 24px;
+   height: 24px;
+}
+.list-header
+{
+    text-align: left;
+}
+
+.action-icon
+{
+    font-size: 2.0em;
+}
+
+.logo-top
+{
+    width: 150px;
+}
+
+.no-wrap
+{
+    white-space: nowrap;
+}
+
+.conn-list-icon
+{
+   width: 24px;
+   height: 24px;
+}
+
+.button-no-focus
+{
+    outline:0;
+}
+
+.menu-label
+{
+  padding-left: 20px;
+  text-indent: -15px;
+}
+.menu-input
+{
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  margin:0;
+  vertical-align: bottom;
+  position: relative;
+  top: -3px;
+  *overflow: hidden;
+}
+
+.filter-label {
+    padding-left: 10px;
+    font-weight: bold;
+}
+.filter-select {
+    width: 100px;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+}
+.filter-select-robot {
+    width: 150px;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.dropbtn {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 100%;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover .dropbtn {
+    background-color: white;
+}
+.dropdown-content li {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+}
+.dropdown-content li:hover {
+    white-space: nowrap;
+}
+li.dropdowm-menuitem {
+    background-color: #FBFBFB;
+    white-space: nowrap;
+}
+li.dropdowm-menuitem:hover {
+    background-color: #F9F9F9;
+    white-space: nowrap;
+}
+.dropdown-list-icon
+{
+   width: 16px;
+   height: 16px;
+}
