@@ -4,15 +4,14 @@ namespace Illuminate\Queue;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Queue\Console\WorkCommand;
-use Illuminate\Queue\Console\DaemonCommand;
 use Illuminate\Queue\Console\ListenCommand;
 use Illuminate\Queue\Console\RestartCommand;
 use Illuminate\Queue\Connectors\SqsConnector;
 use Illuminate\Queue\Connectors\NullConnector;
 use Illuminate\Queue\Connectors\SyncConnector;
 use Illuminate\Queue\Connectors\RedisConnector;
-use Illuminate\Queue\Failed\NullFailedJobProvider;
 use Illuminate\Queue\Connectors\DatabaseConnector;
+use Illuminate\Queue\Failed\NullFailedJobProvider;
 use Illuminate\Queue\Connectors\BeanstalkdConnector;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 
@@ -90,15 +89,11 @@ class QueueServiceProvider extends ServiceProvider
      */
     protected function registerWorkCommand()
     {
-        $this->app->singleton('command.queue.work', function () {
-            return new WorkCommand;
+        $this->app->singleton('command.queue.work', function ($app) {
+            return new WorkCommand($app['queue.worker']);
         });
 
-        $this->app->singleton('command.queue.daemon', function ($app) {
-            return new DaemonCommand($app['queue.worker']);
-        });
-
-        $this->commands('command.queue.work', 'command.queue.daemon');
+        $this->commands('command.queue.work');
     }
 
     /**

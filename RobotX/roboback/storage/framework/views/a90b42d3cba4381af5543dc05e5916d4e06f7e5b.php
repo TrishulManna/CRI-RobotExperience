@@ -65,6 +65,24 @@
                             </div>
                         </div>
 
+                        <div class="form-group<?php echo e($errors->has('role') ? ' has-error' : ''); ?>">
+                            <label for="role" class="col-md-4 control-label">User role</label>
+
+                            <div class="col-md-6">
+                                <select id="role" class="form-control" name="role" required>
+                                <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $id => $role): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+                                    <option value="<?php echo e($id); ?>"><?php echo e($role); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
+                                </select>
+
+                                <?php if($errors->has('role')): ?>
+                                    <span class="help-block">
+                                        <strong><?php echo e($errors->first('role')); ?></strong>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
