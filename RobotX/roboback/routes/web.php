@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'ProjectsController@index');
+Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -20,6 +20,40 @@ Route::resource('texts', 'TextsController');
 Route::resource('behaviors', 'BehaviorsController');
 Route::resource('icons', 'IconsController');
 Route::resource('robots', 'RobotsController');
+Route::resource('requests', 'RequestformController');
+Route::resource('users','UserController');
+
+/*example for using the gate 'moderator-only' on the projects page
+Route::get('/dashboards', 'ProjectsController@index');
+Route::get('projects', function() {
+	if (Gate::allows('moderator-only')){
+		return redirect('/dashboards');
+	}else{
+		return redirect('/home');
+	}
+	
+});
+*/
+
+//WERKT NOG NIET om een of andere reden werkt de view users niet.
+/*Gate to prevent Eventmanagers and Developers to acces the Users page 
+Route::get('users', function() {
+	if (Gate::allows('moderator-only')){
+		return view('users');
+	}else{
+		return view('/home');
+	}
+});
+*/
+
+/* Door Quentin geschreven*/
+Route::get('/requestform', function() {
+    return view('requestform');
+});
+Route::get('requestoverview', 'RequestformController@index');
+Route::get('requests', 'RequestformController@index');
+Route::post('/requestform', 'RequestformController@create')->name('requestform_submit');
+//
 
 Route::get('/icons/{project_id}/link/', 'IconsController@link')->name('icons.link');
 Route::post('/icons/savelink/', 'IconsController@savelink')->name('icons.savelink');
@@ -56,3 +90,7 @@ Route::get('/texts/{project_id}/reorder/', 'TextsController@reorder')->name('tex
 
 Route::get('/projects/{project_id}/projectdata', 'ProjectsController@projectdata')->name('projects.projectdata');
 
+Route::group(['as'=>'user.'], function (){
+  Route::any('/settings',['as'=>'settings','uses'=>'UserController@viewSettings']);
+  Route::any('/profile/{id}', ['as'=>'profile','user'=>'UserController@viewProfile']);
+});

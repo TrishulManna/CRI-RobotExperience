@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
+use App\Project;
+use App\Role;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +28,12 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('moderator-only', function (){
+            if (\App\RoleUsers::where('user_id', Auth::id())->first()->role_id <= 2){
+                return true;
+            }else{
+                return false;
+            }
+        });
     }
 }

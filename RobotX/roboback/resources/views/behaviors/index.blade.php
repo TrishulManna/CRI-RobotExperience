@@ -58,7 +58,11 @@
                                 <th>Description</th>
                                 <th>Type of Behavior</th>
                                 <th>Language</th>
+                                <!-- Accepted as new table -->
                                 <th>&nbsp;</th>
+                                @if(\App\RoleUsers::where('user_id', Auth::id())->first()->role_id <= 2)
+                                    <th>Accepted</th>
+                                @endif
                             </tr>
                             @if(!$behaviors->count())
                                 <tr>
@@ -90,6 +94,16 @@
                                     <td class="bhv-rbts">@if (isset($behavior->sayanimation) && $behavior->sayanimation == 'true')<i class="fa fa-child"></i>@else &nbsp; @endif</td>
                                     <td class="bhv-base" style="display: none">{{ $behavior->basemenu  }}</td>
                                     <td class="bhv-rbts" style="display: none">{{ $behavior->robots }}</td>
+
+                                    <!--New buttons for accepted table-->
+                                    <th>
+                                        @if(\App\RoleUsers::where('user_id', Auth::id())->first()->role_id <= 2)
+                                            <button type="button" value= 1 id="approved" class="btn btn-success response"><i class="fa fa-check">
+                                            </i>Accept</button>  <button type="button" value= 0 id="declined" class="btn btn-danger response">
+                                            <i class="fa fa-times"></i>Decline</button>
+                                        @endif
+                                    </th>
+                                    
                                 </tr>
                             @endforeach
                         </table>

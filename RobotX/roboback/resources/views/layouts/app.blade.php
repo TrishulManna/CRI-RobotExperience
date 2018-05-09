@@ -63,6 +63,9 @@
                         <li><a href="{{ asset('/texts') }}"><i class="fa fa-commenting-o"></i> Texts</a></li>
                         <li><a href="{{ asset('/icons') }}"><i class="fa fa-info"></i> Icons</a></li>
                         <li><a href="{{ asset('/robots') }}"><i class="fa fa-android"></i> Robots</a></li>
+                        @if(\App\RoleUsers::where('user_id', Auth::id())->first()->role_id <= 2)
+                        <li><a href="{{ asset('/users')  }}"><i class="fa fa-user"></i> Users</a></li>
+                        @endif
                         <li><a href="{{ asset('../../robot/app/index.html?ref=robopack') }}"><i class="fa fa-reddit-alien"></i> Connect to Robot</a></li>
                     @endif
                 </ul>
@@ -73,6 +76,8 @@
                     @if (Auth::guest())
                         <li><a href="{{ asset('/login') }}">Login</a></li>
                         <li><a href="{{ asset('/register') }}">Register</a></li>
+                        <!-- added to refer to requestform -->
+                        <li><a href="{{ asset('/requestform') }}">Request</a></li>
                     @else
                         <li class="dropdown">
                             <!--
@@ -83,6 +88,9 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
+                                    @if(\App\RoleUsers::where('user_id', Auth::id())->first()->role_id <= 2)
+                                    <a href="{{ asset('/requestoverview') }}">Request Overview</a>
+                                    @endif
                                     <a href="{{ asset('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>

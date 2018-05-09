@@ -63,6 +63,9 @@
                         <li><a href="<?php echo e(asset('/texts')); ?>"><i class="fa fa-commenting-o"></i> Texts</a></li>
                         <li><a href="<?php echo e(asset('/icons')); ?>"><i class="fa fa-info"></i> Icons</a></li>
                         <li><a href="<?php echo e(asset('/robots')); ?>"><i class="fa fa-android"></i> Robots</a></li>
+                        <?php if(\App\RoleUsers::where('user_id', Auth::id())->first()->role_id <= 2): ?>
+                        <li><a href="<?php echo e(asset('/users')); ?>"><i class="fa fa-user"></i> Users</a></li>
+                        <?php endif; ?>
                         <li><a href="<?php echo e(asset('../../robot/app/index.html?ref=robopack')); ?>"><i class="fa fa-reddit-alien"></i> Connect to Robot</a></li>
                     <?php endif; ?>
                 </ul>
@@ -73,6 +76,8 @@
                     <?php if(Auth::guest()): ?>
                         <li><a href="<?php echo e(asset('/login')); ?>">Login</a></li>
                         <li><a href="<?php echo e(asset('/register')); ?>">Register</a></li>
+                        <!-- added to refer to requestform -->
+                        <li><a href="<?php echo e(asset('/requestform')); ?>">Request</a></li>
                     <?php else: ?>
                         <li class="dropdown">
                             <!--
@@ -83,6 +88,9 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
+                                    <?php if(\App\RoleUsers::where('user_id', Auth::id())->first()->role_id <= 2): ?>
+                                    <a href="<?php echo e(asset('/requestoverview')); ?>">Request Overview</a>
+                                    <?php endif; ?>
                                     <a href="<?php echo e(asset('/logout')); ?>" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>

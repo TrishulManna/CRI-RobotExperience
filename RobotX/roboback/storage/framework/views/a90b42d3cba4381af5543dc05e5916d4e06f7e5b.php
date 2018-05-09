@@ -65,6 +65,7 @@
                             </div>
                         </div>
 
+                        <!-- Added field for roles-->
                         <div class="form-group<?php echo e($errors->has('role') ? ' has-error' : ''); ?>">
                             <label for="role" class="col-md-4 control-label">User role</label>
 
@@ -82,7 +83,7 @@
                                 <?php endif; ?>
                             </div>
                         </div>
-
+                        
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

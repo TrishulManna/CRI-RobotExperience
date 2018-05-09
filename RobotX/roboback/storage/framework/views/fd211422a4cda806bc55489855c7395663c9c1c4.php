@@ -33,7 +33,9 @@
 
                                             <a href="<?php echo e(route('projects.edit', $project->id)); ?>" class="btn btn-primary" role="button" title="Edit"><i class="fa fa-pencil project-action-icon"></i></a>
                                             <a href="<?php echo e(route('projects.copy', $project->id)); ?>" class="btn btn-default" role="button" title="Copy"><i class="fa fa-copy project-action-icon"></i></a>
+                                            <?php if(\App\RoleUsers::where('user_id', Auth::id())->first()->role_id <= 2): ?>
                                             <button type="submit" class="btn btn-default" role="button" title="Delete"><i class="fa fa-trash project-action-icon"></i></button>
+                                            <?php endif; ?>
                                         <?php echo e(Form::close()); ?>
 
                                     </p>

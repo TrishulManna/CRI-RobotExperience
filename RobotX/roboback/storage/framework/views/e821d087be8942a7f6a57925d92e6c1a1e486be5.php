@@ -56,7 +56,11 @@
                                 <th>Description</th>
                                 <th>Type of Behavior</th>
                                 <th>Language</th>
+                                <!-- Accepted as new table -->
                                 <th>&nbsp;</th>
+                                <?php if(\App\RoleUsers::where('user_id', Auth::id())->first()->role_id <= 2): ?>
+                                    <th>Accepted</th>
+                                <?php endif; ?>
                             </tr>
                             <?php if(!$behaviors->count()): ?>
                                 <tr>
@@ -88,6 +92,16 @@
                                     <td class="bhv-rbts"><?php if(isset($behavior->sayanimation) && $behavior->sayanimation == 'true'): ?><i class="fa fa-child"></i><?php else: ?> &nbsp; <?php endif; ?></td>
                                     <td class="bhv-base" style="display: none"><?php echo e($behavior->basemenu); ?></td>
                                     <td class="bhv-rbts" style="display: none"><?php echo e($behavior->robots); ?></td>
+
+                                    <!--New buttons for accepted table-->
+                                    <th>
+                                        <?php if(\App\RoleUsers::where('user_id', Auth::id())->first()->role_id <= 2): ?>
+                                            <button type="button" value= 1 id="approved" class="btn btn-success response"><i class="fa fa-check">
+                                            </i>Accept</button>  <button type="button" value= 0 id="declined" class="btn btn-danger response">
+                                            <i class="fa fa-times"></i>Decline</button>
+                                        <?php endif; ?>
+                                    </th>
+                                    
                                 </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
                         </table>
